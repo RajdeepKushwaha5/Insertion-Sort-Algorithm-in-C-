@@ -15,23 +15,27 @@ int main()
     cin >> arr[i];
   }
 
-  for (int j = 0; j < n - 1; j++)
-  {
-    index = j;
 
-    for (int k = j + 1; k < n; k++)
+
+  for (int j = 1; j < n; j++)
+  {
+    for (int k = j; k > 0; k--)
     {
-      if (arr[k] < arr[index])
+      if (arr[k] < arr[k - 1])
       {
-        index = k;
+        swap(arr[k], arr[k - 1]);
+      }
+      else
+      {
+        break;
       }
     }
-    swap(arr[index], arr[j]);
   }
+
   for (int l = 0; l < n; l++)
   {
     cout << arr[l] << " | ";
   }
-
   return 0;
+  
 }
